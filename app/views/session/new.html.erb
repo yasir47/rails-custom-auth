@@ -1,0 +1,12 @@
+<h5>sign in</h5>
+
+
+<%= form_tag session_create_path do %>
+    <%= label_tag(:name, "name:") %>
+    <%= text_field_tag(:name) %><br>
+    <%= label_tag(:password, "password:") %>
+    <%= text_field_tag(:password) %><br>
+    <%= submit_tag("Sign In") %>
+<% end %>
+
+<%= link_to 'sign up' , register_path %>
