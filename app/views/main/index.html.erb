@@ -1,5 +1,13 @@
-
+<%= link_to 'Sign Out', session_delete_path , method: :delete%>
 <p>
   <%= @user.name %>
 </p>
-<%= link_to 'Sign Out', session_delete_path , method: :delete%>
+
+<%= render @chat %>
+
+<form>
+  <input type="text" id="message1">
+  <input type="hidden" id="userId1" value="<%= @user.id %>">
+  <button id="btn1">Send</button>
+
+</form>
