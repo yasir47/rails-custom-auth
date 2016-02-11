@@ -1,0 +1,17 @@
+<%= link_to 'Sign Out', session_delete_path , method: :delete%>
+<p>
+  <%= @user.name %>
+</p>
+
+<div id="messages" data-room="<%= params[:rooms_name] %>">
+</div>
+<%= render @chat %>
+
+<form>
+  <input type="text" id="message1">
+  <input type="hidden" id="userId1" value="<%= @user.id %>">
+  <input type="hidden" id="chatRoom" value="<%= params[:room_id] %>">
+
+  <button id="btn1">Send</button>
+
+</form>

@@ -4,9 +4,14 @@
 <%= form_tag session_create_path do %>
     <%= label_tag(:name, "name:") %>
     <%= text_field_tag(:name) %><br>
-    <%= label_tag(:password, "password:") %>
-    <%= text_field_tag(:password) %><br>
-    <%= submit_tag("Sign In") %>
+    <%= label_tag(:room_name, "Room Name :") %>
+    <%= text_field_tag(:room_name) %><br>
+    <%= submit_tag("Enter Room") %>
 <% end %>
+
+<h4>Current Rooms</h4>
+<% @room.each do |f|  %>
+ <%= f.name  %> : <%= f.count %>
+<% end %><br><br>
 
 <%= link_to 'sign up' , register_path %>
