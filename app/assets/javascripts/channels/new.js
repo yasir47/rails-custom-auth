@@ -11,7 +11,6 @@
                 connected: function () {
                 },
                 disconnected: function () {
-                    alert("connected to cable");
                 },
                 received: function (data) { //show data on view
                     $('#new1').append(data['message']);

@@ -28,11 +28,15 @@ class MainController < ApplicationController
 
   def chat_room
     @room = Room.find_by name: params[:rooms_name]
+    if @room.present?
     @user = current_user
-    @chat = Chat.order('created_at').joins(:user)
-    if @room.nil?
+    @chat = Chat.joins(:room,:user)
+                .where("rooms.id = #{@room.id}")
+                .order('created_at')
+
+    else @room.nil?
       flash[:alert] = 'The chat room doesnt exist you have to create it'
-      redirect_to root_path
+      redirect_to session_new_path
     end
   end
 

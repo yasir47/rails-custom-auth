@@ -10,6 +10,7 @@ class NewChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
+    stream_from room_chat
     if !@room.nil?
       @room.count -= 1
       if @room.count < 1
@@ -31,6 +32,8 @@ class NewChannel < ApplicationCable::Channel
     @room = Room.find_by(name: params[:chat])
     if !@room.nil?
       "new_#{@room.name}"
+    else
+      'new_test'
     end
   end
 
