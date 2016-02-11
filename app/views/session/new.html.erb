@@ -11,7 +11,7 @@
 
 <h4>Current Rooms</h4>
 <% @room.each do |f|  %>
- <%= f.name  %> : <%= f.count %>
+ <br>Current Active Rooms <b><%= f.name  %></b>
 <% end %><br><br>
 
 <%= link_to 'sign up' , register_path %>
